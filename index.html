@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="theme-color" content="#6577FF">
+	<title>E-Learning</title>
+	<link rel="stylesheet" href="style/index.css">
+	<link rel="icon" type="image/png" href="img/favicon.svg">
+	<style>
+		#app{
+			margin: 0;
+			min-height: 100vh;
+		}
+		.left{
+			margin: 0;
+			background: #333 url(img/home-desktop.svg) no-repeat;
+			background-size: cover;
+			color: #fff;
+			padding: 50px;
+			position: sticky;top: 0;left: 0;
+			height: 100vh
+		}
+		.left p{
+			font-size: 24px;
+		}
+		.left h1{
+			font-size: 50px
+		}
+		@media(max-width: 930px){
+			.left h1{font-size: 44px}
+		}
+		@media(max-width: 850px){
+			.left h1{font-size: 36px}
+		}
+		@media(max-width: 780px){
+			.left{
+				position: static;
+				background: transparent url(img/home-mobile.svg) no-repeat;
+				background-size: cover;
+				height: 300px;
+				width: 100%;
+				padding-bottom: 90px
+			}
+		}
+		@media(max-width: 560px){
+			.left{
+				height: 360px;
+			}
+		}
+		@media(max-width: 430px){
+			.left{padding: 0 20px 70px 20px;height: 280px}
+			.left h1{font-size: 32px}
+			.left p{font-size: 20px}
+		}
+		@media(max-width: 400px){
+			.left{padding-bottom: 60px}
+		}
+		@media(max-width: 330px){
+			.left h1{font-size: 28px}
+		}
+		.right{
+			margin: 0;
+			padding: 50px 20px;
+		}
+		.right > div{
+			width: 100%;
+			max-width: 320px;
+		}
+		.right h2{
+			color: #6577FF;
+			font-size: 36px;
+		}
+		.right form label{
+			position: relative;
+			display: block;
+			margin: 24px 0;
+		}
+		label span{
+			position: absolute;
+			top: 9px;left: 4px;
+			color: #666;
+			background: transparent;padding: 0 8px;font-size: 15px;
+			transition: background 0.3s, top 0.3s, font-size 0.3s;
+		}
+		label input{
+			color: #666;font-size: 15px;
+			padding: 12px 15px;
+			border-radius: 5px;
+			border: 1px solid #e5e5e5;
+			width: calc(100% - 32px)
+		}
+		.right form button{
+			width: 100%;
+			background: #6577FF;
+			padding: 15px 0;
+			color: #fff;font-size: 16px;
+			border: 0;
+		}
+		.right form > span{
+			display: block;
+			text-align: center;
+			margin: 24px;
+		}
+		.right > div > span{
+			margin-top: 50px;
+			display: block;
+			text-align: right;
+		}
+		.daftar{display: none;}
+		.arrowBack{
+			display: none;
+			position: absolute;
+			left: 50px;top: 50px;
+			width: 36px;height: 36px;
+			animation: arr 0.5s;
+			animation-fill-mode: forwards;
+		}
+		.daftar, .masuk{
+			animation: in 0.4s;
+			animation-fill-mode: forwards;
+		}
+		@keyframes in{
+			from{opacity: 0}
+			to{opacity: 1}
+		}
+		@keyframes arr{
+			from{left: -40px;}
+			to{left: 50px;}
+		}
+		@media(max-width: 430px){
+			.arrowBack{
+				left: 20px;
+			}
+			@keyframes arr{
+				from{left: -40px;}
+				to{left: 20px;}
+			}
+		}
+	</style>
+</head>
+
+<body>
+	
+
+	<div id="app" class="row">
+		<div class="left row bottom-xs col-lg-7 col-md-7 col-sm-7 col-xs-12">
+			<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrowBack">
+				<path d="M12 4L13.41 5.41L7.83 11H20V13H7.83L13.41 18.59L12 20L4 12L12 4Z" fill="white"/>
+			</svg>
+			<div>
+				<p>E-Learning</p>
+				<h1>SDN 404 Jakarta</h1>
+			</div>
+		</div>
+		<div class="right row middle-xs center-xs col-lg-5 col-md-5 col-sm-5 col-xs-12">
+			<div class="masuk">
+				<div class="pp" align="center">
+				<svg width="107" height="122" viewBox="0 0 107 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="107" height="107">
+				<circle cx="53.5" cy="53.5" r="53.5" fill="#EDF3F8"></circle>
+				</mask>
+				<g mask="url(#mask0)">
+				<circle cx="53.5" cy="53.5" r="53.5" fill="#273555"></circle>
+				<circle cx="53.5" cy="33.2889" r="17.8333" fill="#F0F0F0"></circle>
+				<circle cx="52.9056" cy="98.0834" r="38.6389" fill="#F0F0F0"></circle>
+				</g>
+				</svg>
+				</div>
+				<div class="header">
+					<h2>
+						Akun Anda
+					</h2>
+				</div>
+				<form>
+					<label>
+						<span>Alamat Email</span>
+						<input type="email" />
+					</label>
+					<label>
+						<span>Kata Sandi</span>
+						<input type="password" />
+						<div style="float:left;position: absolute;right: 12px;top: 9px;z-index: 99;">
+							<svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<ellipse cx="8.81543" cy="5.5" rx="8.81543" ry="5.5" fill="#C4C4C4"/>
+								<ellipse cx="8.81543" cy="5.5" rx="4.40771" ry="2.5" fill="#EDEDED"/>
+							</svg>
+						</div>
+					</label>
+					<button>Masuk</button>
+					<span>Belum punya akun ? <a href="#daftar">Daftar</a></span>
+				</form>
+				<span>
+					<a href="#lupa-sandi">Lupa kata sandi ?</a>
+				</span>
+			</div>
+			<div class="daftar">
+				<div class="header">
+					<h2>
+						Buat Akun
+					</h2>
+				</div>
+				<div class="pp" align="center">
+				<svg width="107" height="122" viewBox="0 0 107 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="107" height="107">
+				<circle cx="53.5" cy="53.5" r="53.5" fill="#EDF3F8"/>
+				</mask>
+				<g mask="url(#mask1)">
+				<circle cx="53.5" cy="53.5" r="53.5" fill="#273555"/>
+				<circle cx="53.5" cy="33.2889" r="17.8333" fill="#F0F0F0"/>
+				<circle cx="52.9056" cy="98.0834" r="38.6389" fill="#F0F0F0"/>
+				</g>
+				<circle cx="53.5" cy="104.622" r="15.6444" fill="#1E315C" stroke="white" stroke-width="2"/>
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M53.5001 92.7334C46.9493 92.7334 41.6112 98.0715 41.6112 104.622C41.6112 111.173 46.9493 116.511 53.5001 116.511C60.0509 116.511 65.389 111.173 65.389 104.622C65.389 98.0715 60.0509 92.7334 53.5001 92.7334ZM52.3112 98.6778V103.433H47.5557V105.811H52.3112V110.567H54.689V105.811H59.4445V103.433H54.689V98.6778H52.3112ZM43.989 104.622C43.989 109.865 48.2571 114.133 53.5001 114.133C58.7431 114.133 63.0112 109.865 63.0112 104.622C63.0112 99.3793 58.7431 95.1112 53.5001 95.1112C48.2571 95.1112 43.989 99.3793 43.989 104.622Z" fill="white"/>
+				</svg>
+				</div>
+				<form>
+					<label>
+						<span>Nama Lengkap</span>
+						<input type="text" />
+					</label>
+					<label>
+						<span>Alamat Email</span>
+						<input type="email" />
+					</label>
+					<label>
+						<span>Kata Sandi</span>
+						<input type="password" />
+						<div style="float:left;position: absolute;right: 12px;top: 9px;z-index: 99;">
+							<svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<ellipse cx="8.81543" cy="5.5" rx="8.81543" ry="5.5" fill="#C4C4C4"/>
+								<ellipse cx="8.81543" cy="5.5" rx="4.40771" ry="2.5" fill="#EDEDED"/>
+							</svg>
+						</div>
+					</label>
+					<label>
+						<span>Konfirmasi Kata Sandi</span>
+						<input type="password" class="konf" />
+						<div style="float:left;position: absolute;right: 12px;top: 9px;z-index: 99;">
+							<svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<ellipse cx="8.81543" cy="5.5" rx="8.81543" ry="5.5" fill="#C4C4C4"/>
+								<ellipse cx="8.81543" cy="5.5" rx="4.40771" ry="2.5" fill="#EDEDED"/>
+							</svg>
+						</div>
+					</label>
+					<button>Daftar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+<script>
+
+	let inpAll = document.querySelectorAll("input")
+	inpAll.forEach(inp => {
+		inp.addEventListener('focus', (e) => {
+			e.target.parentNode.querySelector("span").style.cssText = "top:-12px;background:#fff;font-size:13px"
+		})
+		inp.addEventListener('blur', (e) => {
+			if(e.target.value == ""){
+				e.target.parentNode.querySelector("span").style.cssText = ""
+			}
+		})
+	})
+
+	let togglePassBtnAll = document.querySelectorAll("label > div svg")
+	let togglePass = [];
+	for(let i = 0; i < togglePassBtnAll.length; i++){
+		togglePass.push(false)
+	}
+	togglePassBtnAll.forEach(togglePassBtn => {
+		togglePassBtn.addEventListener("click", (e, i) => {
+			if(!togglePass[i]){
+				e.target.parentNode.querySelector("ellipse").style.fill = "#6577FF"
+				e.target.parentNode.parentNode.parentNode.querySelector("input").setAttribute("type", "text")
+				setTimeout(()=>{
+					e.target.parentNode.parentNode.parentNode.querySelector("input").selectionStart = e.target.parentNode.parentNode.parentNode.querySelector("input").selectionEnd
+				}, 1)
+				togglePass[i] = true
+			} else {
+				e.target.parentNode.querySelector("ellipse").style.fill = "#C4C4C4"
+				e.target.parentNode.parentNode.parentNode.querySelector("input").setAttribute("type", "password")
+				setTimeout(()=>{
+					e.target.parentNode.parentNode.parentNode.querySelector("input").selectionStart = e.target.parentNode.parentNode.parentNode.querySelector("input").selectionEnd
+				}, 1)
+				togglePass[i] = false
+			}
+		})
+	})
+
+	document.querySelector("a[href='#daftar']").onclick = () => {
+		document.querySelector(".daftar").style.display = "block"
+		document.querySelector(".masuk").style.display = "none"
+		document.querySelector(".arrowBack").style.display = "block"
+		document.querySelector(".arrowBack").onclick = () => {
+			location.hash = "login"
+			document.querySelector(".daftar").style.display = "none"
+			document.querySelector(".masuk").style.display = "block"
+			document.querySelector(".arrowBack").style.display = "none"	
+
+		}
+	}
+
+		
+</script>
+
+
+</body>
+
+</html>

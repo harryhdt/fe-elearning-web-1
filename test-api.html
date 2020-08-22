@@ -1,0 +1,42 @@
+<!-- untuk testing -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1>Daftar</h1>
+
+<input type="text" name="name" />
+<input type="text" name="username" />
+<input type="email" name="email" />
+<input type="password" name="password" />
+<input type="password" name="konfPass" />
+<button>Daftar</button>
+
+</body>
+<script>
+	let data, name, username, email, password, konfPass;
+	document.querySelector("button").onclick = () => {
+		name = document.querySelector("input[name=name]").value
+		username = document.querySelector("input[name=username]").value
+		email = document.querySelector("input[name=email]").value
+		password = document.querySelector("input[name=password]").value
+		konfPass = document.querySelector("input[name=konfPass]").value
+		data = {
+			name, username, email, password, konfPass
+		}
+		fetch('http://localhost:8000/register', {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		}).then(r => r.json()).then(res => {
+			console.log(res)
+		})
+	}
+</script>
+</html> -->

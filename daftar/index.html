@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="theme-color" content="#6577FF">
+	<title>E-Learning - Buat Akun</title>
+	<link rel="stylesheet" href="../src/style/index.css">
+	<link rel="icon" type="image/png" href="img/favicon.svg">
+</head>
+
+<body>
+	
+
+	<div id="app" class="row">
+		<div class="left row bottom-xs col-lg-7 col-md-7 col-sm-7 col-xs-12">
+			<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrowBack">
+				<path d="M12 4L13.41 5.41L7.83 11H20V13H7.83L13.41 18.59L12 20L4 12L12 4Z" fill="white"></path>
+			</svg>
+			<div>
+				<p>E-Learning</p>
+				<h1>SDN 404 Jakarta</h1>
+			</div>
+		</div>
+		<div class="right row middle-xs center-xs col-lg-5 col-md-5 col-sm-5 col-xs-12">
+			<div class="daftar" style="display: block;">
+				<div class="header">
+					<h2>
+						Buat Akun
+					</h2>
+				</div>
+				<div class="pp" align="center">
+				<img src="../src/img/pp.svg" alt="pp" style="border-radius: 100%;width: 100px;height: 100px;cursor: pointer;" />
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);background: #d42222;border-radius: 100%;padding: 1px;width: 20px;height: 20px;margin: -17px 0 0 0;display: none;cursor: pointer;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41z" fill="#fff"/></svg>
+				</div>
+				<form>
+					<label>
+						<input type="file" style="display: none;">
+					</label>
+					<label>
+						<span>Nama Lengkap</span>
+						<input type="text">
+					</label>
+					<label>
+						<span>Alamat Email</span>
+						<input type="email">
+					</label>
+					<label>
+						<span>Kata Sandi</span>
+						<input type="password">
+						<div style="float:left;position: absolute;right: 12px;top: 9px;z-index: 99;">
+							<svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<ellipse cx="8.81543" cy="5.5" rx="8.81543" ry="5.5" fill="#C4C4C4"></ellipse>
+								<ellipse cx="8.81543" cy="5.5" rx="4.40771" ry="2.5" fill="#EDEDED"></ellipse>
+							</svg>
+						</div>
+					</label>
+					<label>
+						<span>Konfirmasi Kata Sandi</span>
+						<input type="password" class="konf">
+						<div style="float:left;position: absolute;right: 12px;top: 9px;z-index: 99;">
+							<svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<ellipse cx="8.81543" cy="5.5" rx="8.81543" ry="5.5" fill="#C4C4C4"></ellipse>
+								<ellipse cx="8.81543" cy="5.5" rx="4.40771" ry="2.5" fill="#EDEDED"></ellipse>
+							</svg>
+						</div>
+					</label>
+					<label>
+						<select>
+							<option>-- Daftar Sebagai --</option>
+							<option>Pengajar</option>
+							<option>Siswa</option>
+						</select>
+					</label>
+					<button>Daftar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<script src="../src/js/index.js"></script>
+<script>
+	document.querySelector(".right img").onclick = () => {
+		document.querySelector("input[type='file']").click()
+	}
+	document.querySelector("input[type='file']").addEventListener("change", e => {
+		document.querySelector(".right img").setAttribute("src", URL.createObjectURL(e.target.files[0]));
+		setTimeout(()=>{
+			document.querySelector(".pp svg").style.display = "block"
+			document.querySelector(".pp svg").onclick = () => {
+				document.querySelector(".right img").setAttribute("src", "../src/img/pp.svg")
+				document.querySelector(".pp svg").style.display = "none"
+			}
+		}, 300)
+
+	})
+	document.querySelector(".arrowBack").onclick = () => {
+		location.href = "../masuk";
+	}
+
+	// send to server
+
+</script>
+
+
+
+
+</body></html>
