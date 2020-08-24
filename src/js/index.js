@@ -13,26 +13,29 @@ inpAll.forEach(inp => {
 	})
 })
 
-let togglePassBtnAll = document.querySelectorAll("label > div svg")
+let togglePassBtnAll = document.querySelectorAll("label > div")
 let togglePass = [];
 for(let i = 0; i < togglePassBtnAll.length; i++){
 	togglePass.push(false)
 }
-togglePassBtnAll.forEach(togglePassBtn => {
-	togglePassBtn.addEventListener("click", (e, i) => {
+togglePassBtnAll.forEach((togglePassBtn, i) => {
+	let enableSelect = () => {
+		setTimeout(()=>{
+			togglePassBtn.parentNode.querySelector("input").selectionStart = togglePassBtn.parentNode.querySelector("input").selectionEnd
+		}, 1)
+	}
+	togglePassBtn.addEventListener("click", (e) => {
 		if(!togglePass[i]){
-			e.target.parentNode.querySelector("ellipse").style.fill = "#6577FF"
-			e.target.parentNode.parentNode.parentNode.querySelector("input").setAttribute("type", "text")
-			setTimeout(()=>{
-				e.target.parentNode.parentNode.parentNode.querySelector("input").selectionStart = e.target.parentNode.parentNode.parentNode.querySelector("input").selectionEnd
-			}, 1)
+			console.log("text" + i)
+			togglePassBtn.querySelector("svg ellipse").style.fill = "#6577FF"
+			togglePassBtn.parentNode.querySelector("input").setAttribute("type", "text")
+			enableSelect();
 			togglePass[i] = true
 		} else {
-			e.target.parentNode.querySelector("ellipse").style.fill = "#C4C4C4"
-			e.target.parentNode.parentNode.parentNode.querySelector("input").setAttribute("type", "password")
-			setTimeout(()=>{
-				e.target.parentNode.parentNode.parentNode.querySelector("input").selectionStart = e.target.parentNode.parentNode.parentNode.querySelector("input").selectionEnd
-			}, 1)
+			console.log("password" + i)
+			togglePassBtn.querySelector("svg ellipse").style.fill = "#C4C4C4"
+			togglePassBtn.parentNode.querySelector("input").setAttribute("type", "password")
+			enableSelect();
 			togglePass[i] = false
 		}
 	})
