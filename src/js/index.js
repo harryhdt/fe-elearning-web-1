@@ -1,5 +1,8 @@
 let inpAll = document.querySelectorAll("input")
 inpAll.forEach(inp => {
+	if(inp.value != ""){
+		inp.parentNode.querySelector("span").style.cssText = "top:-12px;background:#fff;font-size:13px"
+	}
 	inp.addEventListener('focus', (e) => {
 		e.target.parentNode.querySelector("span").style.cssText = "top:-12px;background:#fff;font-size:13px"
 	})

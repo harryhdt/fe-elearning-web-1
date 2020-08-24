@@ -33,20 +33,25 @@
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);background: #d42222;border-radius: 100%;padding: 1px;width: 20px;height: 20px;margin: -17px 0 0 0;display: none;cursor: pointer;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41z" fill="#fff"/></svg>
 				</div>
 				<form>
-					<label>
-						<input type="file" style="display: none;" accept="image/*" />
+					<label style="display: none;">
+						<span></span>
+						<input type="file" accept="image/*" name="picture" />
 					</label>
 					<label>
 						<span>Nama Lengkap</span>
-						<input type="text">
+						<input type="text" name="name">
+					</label>
+					<label>
+						<span>Nama Penggua</span>
+						<input type="text" name="username">
 					</label>
 					<label>
 						<span>Alamat Email</span>
-						<input type="email">
+						<input type="email" name="email">
 					</label>
 					<label>
 						<span>Kata Sandi</span>
-						<input type="password">
+						<input type="password" name="password">
 						<div style="float:left;position: absolute;right: 12px;top: 9px;z-index: 99;">
 							<svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<ellipse cx="8.81543" cy="5.5" rx="8.81543" ry="5.5" fill="#C4C4C4"></ellipse>
@@ -56,7 +61,7 @@
 					</label>
 					<label>
 						<span>Konfirmasi Kata Sandi</span>
-						<input type="password" class="konf">
+						<input type="password" class="konf" name="konfPass">
 						<div style="float:left;position: absolute;right: 12px;top: 9px;z-index: 99;">
 							<svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<ellipse cx="8.81543" cy="5.5" rx="8.81543" ry="5.5" fill="#C4C4C4"></ellipse>
@@ -65,7 +70,7 @@
 						</div>
 					</label>
 					<label>
-						<select>
+						<select name="role">
 							<option>-- Daftar Sebagai --</option>
 							<option>Pengajar</option>
 							<option>Siswa</option>
@@ -79,9 +84,11 @@
 
 <script src="../src/js/index.js"></script>
 <script>
+
 	document.querySelector(".right img").onclick = () => {
 		document.querySelector("input[type='file']").click()
 	}
+	let image = undefined;
 	document.querySelector("input[type='file']").addEventListener("change", e => {
 		document.querySelector(".right img").setAttribute("src", URL.createObjectURL(e.target.files[0]));
 		setTimeout(()=>{
@@ -89,15 +96,71 @@
 			document.querySelector(".pp svg").onclick = () => {
 				document.querySelector(".right img").setAttribute("src", "../src/img/pp.svg")
 				document.querySelector(".pp svg").style.display = "none"
+				image = undefined
 			}
 		}, 300)
-
+		image = document.querySelector("input[type='file']").files[0]
 	})
 	document.querySelector(".arrowBack").onclick = () => {
 		location.href = "../masuk";
 	}
 
 	// send to server
+	// using express (Node Js)
+	/**
+	document.querySelector("form").addEventListener("submit", async (e) => {
+		e.preventDefault();
+
+		let name, username, email, password, konfPass, role;
+
+		name = document.querySelector("input[name='name']").value;
+		username = document.querySelector("input[name='username']").value;
+		email = document.querySelector("input[name='email']").value;
+		password = document.querySelector("input[name='password']").value;
+		konfPass = document.querySelector("input[name='konfPass']").value;
+		role = document.querySelector("select[name='role']").value;
+
+		const data = new FormData();
+		data.append('name', name);
+		data.append('username', username);
+		data.append('email', email);
+		data.append('password', password);
+		data.append('konfPass', konfPass);
+		data.append('role', role);
+		data.append('picture', image);
+
+		fetch("http://localhost:8000/register", {
+			method: "POST",
+			body: data
+		}).then(r => r.json()).then(result => {
+			console.log(result);
+		})
+
+
+		// await fetch("http://localhost:8000/register", {
+		// 	method: "POST",
+		// 	headers: {
+		// 		"Content-Type": "application/json"
+		// 	},
+		// 	body: JSON.stringify(data)
+		// }).then(r => r.json()).then(result => {
+		// 	console.log(result);
+		// }).catch(err => console.log(err));
+
+		// fetch("http://localhost:8000/upload-pp", {
+		// 	method: "POST",
+		// 	body: file
+		// }).then(r => r.json()).then(result => {
+		// 	console.log(result);
+		// }).catch(err => {
+		// 	console.log(err);
+		// });
+		// tolak permintaan selanjutnya
+	})
+	*/
+
+	// using php lumen
+	// ditunggu api nya wkwk
 
 </script>
 
